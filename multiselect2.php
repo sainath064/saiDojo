@@ -124,11 +124,6 @@
 </script>
 
 
-
-
-
-
-
 <div style="padding: 30px;">
     <div id="placeholder"></div>
 </div>
