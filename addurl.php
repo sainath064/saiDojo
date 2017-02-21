@@ -2,11 +2,10 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Display Text</title>
+    <title>Add Url Display Text</title>
 </head>
 <body class="claro">
     <h4 id="greeting">Dynamic URL</h4>
-
 
 
 <input type="text" name="showtext" id="_textbox1">
