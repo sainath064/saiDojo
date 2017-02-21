@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="content-type">
+<script type="text/javascript" src="/aps/2/ui/runtime/client/aps/aps.js"></script>
+<script>require([
+    "aps/Memory",
+    "aps/Container",
+    "aps/Grid",
+    "dojox/mvc/StatefulArray",
+    "aps/PageContainer",
+    "aps/ready!"
+], function(Memory, Container, Grid, StatefulArray, PageContainer) {
+    "use strict";
+    /* Array **data** must be initialized here */
+
+    var data = [{
+        "aps": {
+            "id": "d58bdae7-ec62-4125-9666-c5215fc5d744",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "38c2f2d7-846a-4700-bc09-dc52c6df66fc",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "description": "",
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "hostname": "",
+        "name": "test1",
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        }
+    }, {
+        "aps": {
+            "id": "401086df-fa08-44fc-a37d-fe49b1dd4d0e",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "description": "blabla",
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 33,
+                "power": 7680
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "hostname": "",
+        "name": "test2_1_3",
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        }
+    }, {
+        "aps": {
+            "id": "a9885415-09fd-493a-a867-f656368c52f5",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Windows",
+                "version": "XP"
+            }
+        },
+        "hardware": {
+            "bandwidth": 500,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "0fca6500-d204-4ca6-8768-773400ba2789",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "ea7865aa-6cd9-4216-8b34-832f83eb5166",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "ea7865aa-6cd9-4216-8b34-832f83eb5167",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/sample/1.0"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "description": "",
+        "name": "test1"
+    }, {
+        "aps": {
+            "id": "d58bdae7-ec62-4125-9666-c5215fc5d744a",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "38c2f2d7-846a-4700-bc09-dc52c6df66fca",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "description": "",
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "hostname": "",
+        "name": "test1",
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        }
+    }, {
+        "aps": {
+            "id": "401086df-fa08-44fc-a37d-fe49b1dd4d0ea",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "description": "blabla",
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 33,
+                "power": 7680
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "hostname": "",
+        "name": "test2_1_3",
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        }
+    }, {
+        "aps": {
+            "id": "a9885415-09fd-493a-a867-f656368c52f5a",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Windows",
+                "version": "XP"
+            }
+        },
+        "hardware": {
+            "bandwidth": 500,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "boolTest": true,
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "0fca6500-d204-4ca6-8768-773400ba2789a",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "boolTest": true,
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "ea7865aa-6cd9-4216-8b34-832f83eb5166a",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/1.0"
+        },
+        "status": {
+            "state": "stopped",
+            "transition": "stopped"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "boolTest": false,
+        "description": "",
+        "name": "test1",
+        "hostname": ""
+    }, {
+        "aps": {
+            "id": "ea7865aa-6cd9-4216-8b34-832f83eb5167a",
+            "type": "http://www.parallels.com/infrastructure/virtual-environment/sample/1.0"
+        },
+        "platform": {
+            "arch": "i386",
+            "os": {
+                "name": "Linux",
+                "version": "centos-5"
+            }
+        },
+        "boolTest": false,
+        "hardware": {
+            "bandwidth": 1024,
+            "cpu": {
+                "number": 1,
+                "power": 2000
+            },
+            "diskspace": 2048,
+            "memory": 2048
+        },
+        "description": "",
+        "name": "test1"
+    }];
+
+
+    var store = new Memory({
+        data: data,
+        idProperty: "aps.id"
+    });
+
+    var layoutSimpleGrid = [{
+        "name": "ID",
+        "field": "aps.id"
+    }, {
+        "name": "Description",
+        "field": "description"
+    }, {
+        "name": "Name",
+        "field": "name"
+    }, {
+        "name": "OS",
+        "field": "platform.os.name"
+    }];
+
+    var page = new PageContainer({}, "simpleGrid");
+
+    var con = new Container({
+        title: "Simple Grid"
+    });
+
+    var selectionArray = new StatefulArray([]);
+
+    var simpleGrid = new Grid({
+        columns: layoutSimpleGrid,
+        store: store,
+        selectionMode: "multiple",
+        selectionArray: selectionArray
+    });
+
+    con.addChild(simpleGrid);
+    page.addChild(con);
+
+    page.startup();
+
+    setTimeout(function() {
+        selectionArray.push("d58bdae7-ec62-4125-9666-c5215fc5d744");
+    }, 2000);
+});</script>
+</head>
+<body>
+<div id="simpleGrid"></div>
+</body>
+</html>
